@@ -1,5 +1,5 @@
 class Board:
-    def __init__(self, rows, columns):
+    def __init__(self, rows: int, columns: int):
         self.rows = rows
         self.columns = columns
     

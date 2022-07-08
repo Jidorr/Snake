@@ -1,14 +1,20 @@
 import sys
+
+from regex import S
 from board import Board
 from snake import Snake
 import functions
 
 def main():
     print("Welcome to the snake challenge")
-    b = input("Enter the number of rows and columns separated by a comma: ")
-    board = functions.createBoard(b)
+    board = functions.createBoard()
+    board.printBoardSize()
+    rows, columns = board.rows, board.columns
 
-    #s = input("Enter the number of rows and columns separated by a comma: ")
+    snake_list = []
+    functions.createSnake(snake_list, rows, columns)
+    snake = Snake(snake_list)
+    snake.printSnakeConfig()
 
 if __name__ == "__main__":
     main()
