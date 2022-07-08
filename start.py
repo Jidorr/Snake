@@ -8,13 +8,11 @@ def main():
     rows, columns = board.rows, board.columns
 
     snake_list = []
-    snake = functions.createSnake(snake_list, rows, columns)
+    snake = functions.createSnake(snake_list, rows, columns, board)
     
     depth = functions.getDepth()
     snake.depth = depth
+    snake.moveHead()
 
-    board.printBoardSize()
-    snake.printSnakeConfig()
-    print("Depth:", depth)
 if __name__ == "__main__":
     main()

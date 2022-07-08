@@ -1,4 +1,6 @@
 import sys
+
+from regex import X
 from board import Board
 from snake import Snake
 
@@ -20,7 +22,7 @@ def createBoard():
     
     return board
 
-def createSnake(snake, rows, columns):
+def createSnake(snake, rows, columns, board):
     counter = 0
     while True:
         try:
@@ -41,13 +43,12 @@ def createSnake(snake, rows, columns):
             print('Invalid snake configuration')
             sys.exit()
         
-    
     if not 3 <= counter <= 7:
         print("Lenght of the snake has to be between 3 and 7")
         sys.exit()
 
     validateSnake(snake)
-    snake_obj = Snake(snake)
+    snake_obj = Snake(snake, board)
     return snake_obj
     
 def validateSnake(snake):
@@ -87,3 +88,16 @@ def getDepth():
         # rerun the program
         sys.exit()
     return depth
+
+def isOutOfBoard(coordinate, rows, columns):
+    x, y = coordinate[0], coordinate[1]
+    if ((0 <= x < rows) and (0 <= y < columns)):
+        return False
+    else:
+        return True
+
+def cellIsOccupied(cell, snake):
+    if cell in snake:
+        return True
+    else:
+        return False
