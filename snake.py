@@ -3,6 +3,7 @@ class Snake:
 
     def __init__(self, snake: list):
         self.snake = snake
+        self.depth = int()
 
     def printSnakeConfig(self):
         print(f'Snake configuration: {self.snake}')
